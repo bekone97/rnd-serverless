@@ -15,22 +15,18 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-core</artifactId>
-            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>godel</groupId>
             <artifactId>api</artifactId>
-            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>godel</groupId>
             <artifactId>factorial</artifactId>
-            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>godel</groupId>
             <artifactId>fibonacci</artifactId>
-            <version>1.0</version>
         </dependency>
     </dependencies>
 
@@ -39,7 +35,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
