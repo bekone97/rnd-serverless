@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>godel</groupId>
+        <artifactId>functions</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>native</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <native-maven-plugin.version>0.9.8</native-maven-plugin.version>
+        <imageName>native</imageName>
+        <mainClass>com.amazonaws.services.lambda.runtime.api.client.AWSLambda</mainClass>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>app</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>${native-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>build-native</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                    <imageName>${imageName}</imageName>
+                    <buildArgs>
+                        <buildArg>--no-fallback</buildArg>
+                    </buildArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  rsa fibonacci functions
+
+Globals:
+  Function:
+    Timeout: 20
+    MemorySize: 256
+    Architectures:
+      - x86_64
+    Environment:
+      Variables:
+        JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+
+Resources:
+  FunctionNative:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FunctionNative
+      Handler: rnd.serverless.Handler::handleRequest
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+    Metadata:
+      BuildMethod: makefile
