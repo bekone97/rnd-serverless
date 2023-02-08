@@ -1,12 +1,17 @@
-BUILD_NATIVE := build_native
-COPY_FIBONACCI := copy_fibonacci
-COPY_RSA := copy_rsa
-COPY_FACTORIAL := copy_factorial
-API_PATH := src/main/resources/META-INF/services/rnd.serverless.api.Calculate
+TARGET_PATH := /src/functions/native-function/target
+FIBONACCI := $(TARGET_PATH)/fibonacci/fibonacci
+RSA := $(TARGET_PATH)/rsa/rsa
+FACTORIAL := $(TARGET_PATH)/factorial/factorial
+COPY_BOOTSTRAP := copy_bootstrap
 
-build-FibonacciFunctionNative: $(COPY_FIBONACCI) $(BUILD_NATIVE)
-build-FactorialFunctionNative: $(COPY_FACTORIAL) $(BUILD_NATIVE)
-build-RSAFunctionNative: $(COPY_RSA) $(BUILD_NATIVE)
+build-FibonacciFunctionNative%: $(COPY_BOOTSTRAP)
+	cp $(FIBONACCI) $(ARTIFACTS_DIR)/native
+
+build-FactorialFunctionNative%: $(COPY_BOOTSTRAP)
+	cp $(FACTORIAL) $(ARTIFACTS_DIR)/native
+
+build-RSAFunctionNative%: $(COPY_BOOTSTRAP)
+	cp $(RSA) $(ARTIFACTS_DIR)/native
 
 $(COPY_FIBONACCI):
 	echo "rnd.serverless.impl.fibonacci.Fibonacci" >| $(API_PATH)
@@ -17,8 +22,6 @@ $(COPY_RSA):
 $(COPY_FACTORIAL):
 	echo "rnd.serverless.impl.factorial.Factorial" >| src/main/resources/META-INF/services/rnd.serverless.api.Calculate
 
-$(BUILD_NATIVE):
-	mvn package -Pnative
-	cp ./target/native $(ARTIFACTS_DIR)
-	chmod 755 ./target/classes/bootstrap
-	cp ./target/classes/bootstrap $(ARTIFACTS_DIR)
+$(COPY_BOOTSTRAP):
+	chmod 755 $(TARGET_PATH)/classes/bootstrap
+	cp $(TARGET_PATH)/classes/bootstrap $(ARTIFACTS_DIR)

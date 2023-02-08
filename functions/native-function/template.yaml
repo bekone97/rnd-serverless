@@ -9,38 +9,76 @@ Globals:
     MemorySize: 256
     Architectures:
       - x86_64
-    Environment:
-      Variables:
-        JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
 
 Resources:
-  FibonacciFunctionNative:
+  # 256
+  ## Fibonacci
+  FibonacciFunctionNative256:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: FibonacciFunctionNative
+      FunctionName: FibonacciFunctionNative256
       Handler: rnd.serverless.Handler::handleRequest
       Runtime: provided
       FunctionUrlConfig:
         AuthType: AWS_IAM
     Metadata:
       BuildMethod: makefile
-  FactorialFunctionNative:
+  ## Factorial
+  FactorialFunctionNative256:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: FactorialFunctionNative
+      FunctionName: FactorialFunctionNative256
       Handler: rnd.serverless.Handler::handleRequest
       Runtime: provided
       FunctionUrlConfig:
         AuthType: AWS_IAM
     Metadata:
       BuildMethod: makefile
-  RSAFunctionNative:
+  ## RSA
+  RSAFunctionNative256:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: RSAFunctionNative
+      FunctionName: RSAFunctionNative256
       Handler: rnd.serverless.Handler::handleRequest
       Runtime: provided
       FunctionUrlConfig:
         AuthType: AWS_IAM
+    Metadata:
+      BuildMethod: makefile
+  # 512
+  ## Fibonacci
+  FibonacciFunctionNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FibonacciFunctionNative512
+      Handler: rnd.serverless.Handler::handleRequest
+      Runtime: provided
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      MemorySize: 512
+    Metadata:
+      BuildMethod: makefile
+  ## Factorial
+  FactorialFunctionNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FactorialFunctionNative512
+      Handler: rnd.serverless.Handler::handleRequest
+      Runtime: provided
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      MemorySize: 512
+    Metadata:
+      BuildMethod: makefile
+  ## RSA
+  RSAFunctionNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: RSAFunctionNative512
+      Handler: rnd.serverless.Handler::handleRequest
+      Runtime: provided
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      MemorySize: 512
     Metadata:
       BuildMethod: makefile
