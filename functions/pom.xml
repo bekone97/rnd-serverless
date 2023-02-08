@@ -9,6 +9,6 @@
     <artifactId>functions</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>native</module>
+        <module>native-function</module>
     </modules>
 </project>

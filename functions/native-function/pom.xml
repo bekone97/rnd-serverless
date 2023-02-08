@@ -6,25 +6,19 @@
         <artifactId>functions</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>native</artifactId>
+    <artifactId>native-function</artifactId>
     <packaging>jar</packaging>
 
     <properties>
         <native-maven-plugin.version>0.9.8</native-maven-plugin.version>
         <imageName>native</imageName>
         <mainClass>com.amazonaws.services.lambda.runtime.api.client.AWSLambda</mainClass>
-        <module>app</module>
-        <module-path>/artifacts:/artifacts/fib</module-path>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>godel</groupId>
             <artifactId>app</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>godel</groupId>
-            <artifactId>api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
@@ -34,7 +28,6 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
         </dependency>
-
     </dependencies>
 
     <profiles>
@@ -61,8 +54,6 @@
                             <imageName>${imageName}</imageName>
                             <buildArgs>
                                 <buildArg>--no-fallback</buildArg>
-                                <buildArg>--module-path /artifacts:/artifacts/fib</buildArg>
-                                <buildArg>--add-opens java.base/java.util=ALL-UNNAMED</buildArg>
                             </buildArgs>
                         </configuration>
                     </plugin>

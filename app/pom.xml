@@ -28,6 +28,10 @@
             <groupId>godel</groupId>
             <artifactId>fibonacci</artifactId>
         </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>rsa</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

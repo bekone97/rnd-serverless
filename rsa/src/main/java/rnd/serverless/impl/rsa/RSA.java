@@ -1,4 +1,4 @@
-package rnd.serverless.rsa;
+package rnd.serverless.impl.rsa;
 
 import rnd.serverless.api.Calculate;
 
