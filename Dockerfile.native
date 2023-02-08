@@ -48,4 +48,15 @@ COPY ./app ./app
 COPY ./functions ./functions
 RUN mvn clean install
 
-ENTRYPOINT ["sh"]
+RUN mkdir /artifacts
+RUN cp app/target/app-1.0.jar /artifacts/app-1.0.jar
+RUN cp api/target/api-1.0.jar /artifacts/api-1.0.jar
+RUN cp /root/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.2/aws-lambda-java-core-1.2.2.jar /artifacts/aws-lambda-java-core-1.2.2.jar
+RUN cp /root/.m2/repository/com/amazonaws/aws-lambda-java-runtime-interface-client/2.1.1/aws-lambda-java-runtime-interface-client-2.1.1.jar /artifacts/aws-lambda-java-runtime-client-2.1.1.jar
+
+RUN mkdir /artifacts/fac
+RUN mkdir /artifacts/fib
+RUN mkdir /artifacts/rsa
+RUN cp factorial/target/factorial-1.0.jar /artifacts/fac/factorial-1.0.jar
+RUN cp fibonacci/target/fibonacci-1.0.jar /artifacts/fib/fibonacci-1.0.jar
+RUN cp rsa/target/rsa-1.0.jar /artifacts/rsa/rsa-1.0.jar
