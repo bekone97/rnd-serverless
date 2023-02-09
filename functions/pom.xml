@@ -10,5 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>native-function</module>
+        <module>quarkus-function</module>
     </modules>
 </project>

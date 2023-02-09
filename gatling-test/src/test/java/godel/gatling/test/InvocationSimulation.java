@@ -35,7 +35,7 @@ public class InvocationSimulation extends Simulation {
                 scenarioBuilders.stream().map(scn ->
                                 scn.injectOpen(
                                         atOnceUsers(100),
-                                        nothingFor(15),
+                                        nothingFor(20),
                                         atOnceUsers(100)
                                 ))
                         .collect(Collectors.toList())

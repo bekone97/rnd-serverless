@@ -7,8 +7,8 @@ RUN yum -y update \
     && rm -rf /var/cache/yum
 
 # Graal VM
-ENV JAVA_VERSION java11
-ENV GRAAL_VERSION 22.1.0
+ENV JAVA_VERSION java17
+ENV GRAAL_VERSION 22.3.0
 ENV GRAAL_FOLDERNAME graalvm-ce-${JAVA_VERSION}-${GRAAL_VERSION}
 ENV GRAAL_FILENAME graalvm-ce-${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz
 RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FILENAME} | tar -xvz
@@ -39,20 +39,11 @@ RUN ln -s /usr/lib/maven/bin/mvn /usr/bin/mvn
 ENV JAVA_HOME /usr/lib/graalvm
 
 WORKDIR /src
-COPY ./pom.xml ./
-COPY ./api ./api
-COPY ./factorial ./factorial
-COPY ./fibonacci ./fibonacci
-COPY ./rsa ./rsa
-COPY ./app ./app
-COPY ./functions ./functions
+COPY ../pom.xml ./
+COPY ../api ./api
+COPY ../factorial ./factorial
+COPY ../fibonacci ./fibonacci
+COPY ../rsa ./rsa
+COPY ../app ./app
+COPY ../functions ./functions
 RUN mvn install
-
-RUN echo "rnd.serverless.impl.fibonacci.Fibonacci" >| functions/native-function/src/main/resources/META-INF/services/rnd.serverless.api.Calculate
-RUN mvn -Pnative -DimageName=fibonacci -DoutputDirectory=target/fibonacci -pl functions/native-function package
-
-RUN echo "rnd.serverless.impl.factorial.Factorial" >| functions/native-function/src/main/resources/META-INF/services/rnd.serverless.api.Calculate
-RUN mvn -Pnative -DimageName=factorial -DoutputDirectory=target/factorial -pl functions/native-function package
-
-RUN echo "rnd.serverless.impl.rsa.RSA" >| functions/native-function/src/main/resources/META-INF/services/rnd.serverless.api.Calculate
-RUN mvn -Pnative -DimageName=rsa -DoutputDirectory=target/rsa -pl functions/native-function package
