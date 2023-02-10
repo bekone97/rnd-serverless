@@ -1,13 +1,17 @@
 ### How to start:
 1. build image:
     ```
-    docker image build rnd-serverless .
+    ./build-image
     ```
-2. run container:
+2. build & deploy native functions
     ```
-    docker run rnd-serverless --name rnd-serverless
+    cd functions/native-function
+    sam build
+    sam deploy
     ```
-
-### How to control functions:
-To control which functions will be executed, add the appropriate path to `--module-path` in `Dockerfile`.
-It can be changed later in AWS Lambda, so we can control functions to be executed without recreating lambda.
+3. build & deploy quarkus functions
+   ```
+    cd functions/quarkus-function
+    sam build
+    sam deploy
+    ```
