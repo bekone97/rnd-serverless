@@ -8,4 +8,4 @@ RUN echo "rnd.serverless.impl.factorial.Factorial" >| functions/quarkus-function
 RUN mvn -Pnative -DimageName=factorial -Dquarkus.package.output-name=factorial -Dquarkus.native.auto-service-loader-registration=true -pl functions/quarkus-function package
 
 RUN echo "rnd.serverless.impl.rsa.RSA" >| functions/quarkus-function/src/main/resources/META-INF/services/rnd.serverless.api.Calculate
-RUN mvn -Pnative -DimageName=rsa -Dquarkus.package.output-name=rsexa -Dquarkus.native.auto-service-loader-registration=true -pl functions/quarkus-function package
+RUN mvn -Pnative -DimageName=rsa -Dquarkus.package.output-name=rsa -Dquarkus.native.auto-service-loader-registration=true -pl functions/quarkus-function package

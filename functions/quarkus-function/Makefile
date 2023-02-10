@@ -1,5 +1,5 @@
 SRC_PATH := /src/functions/quarkus-function
-CALCULATE_SVC_PATH := $(SRC_PATH)/src/main/resources/META-INF/services/rnd.serverless.api.Calculate
+CALCULATE_SVC_PATH := src/main/resources/META-INF/services/rnd.serverless.api.Calculate
 TARGET_PATH := $(SRC_PATH)/target
 BUILD := build
 SET_FIBONACCI_IMPL := set_fibonacci_impl
