@@ -15,7 +15,6 @@
         <dependency>
             <groupId>godel</groupId>
             <artifactId>api</artifactId>
-            <version>1.0</version>
         </dependency>
     </dependencies>
 </project>

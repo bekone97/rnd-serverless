@@ -46,4 +46,4 @@ COPY ../fibonacci ./fibonacci
 COPY ../rsa ./rsa
 COPY ../app ./app
 COPY ../functions ./functions
-RUN mvn install
+RUN mvn clean install
