@@ -36,7 +36,7 @@
         <artifactId>gatling-maven-plugin</artifactId>
         <version>${gatling-maven-plugin.version}</version>
         <configuration>
-          <simulationClass>test.gatling.rnd.serverless.nativ.NativeHandler.InvocationSimulation</simulationClass>
+          <simulationClass>godel.gatling.test.InvocationSimulation</simulationClass>
         </configuration>
       </plugin>
     </plugins>
