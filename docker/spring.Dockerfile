@@ -1,6 +1,6 @@
-FROM al2-graalvm:11
+FROM al2-graalvm:17
 
-# native functions
+# spring native functions
 WORKDIR /src
 COPY ../pom.xml ./
 COPY ../api ./api
@@ -11,4 +11,7 @@ COPY ../app ./app
 COPY ../functions ./functions
 
 RUN mvn clean install
-RUN mvn -Pnative -pl functions/native-function package
+RUN mvn  \
+    -Pnative  \
+    native:compile \
+    -f functions/spring-function/pom.xml

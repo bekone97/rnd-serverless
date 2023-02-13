@@ -1,4 +1,4 @@
-package godel.gatling.test;
+package rnd.serverless.nativ.gatling.test;
 
 import com.amazonaws.DefaultRequest;
 import com.amazonaws.auth.AWS4Signer;

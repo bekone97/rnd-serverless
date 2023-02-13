@@ -1,4 +1,4 @@
-package godel.gatling.test;
+package rnd.serverless.nativ.gatling.test;
 
 import io.gatling.javaapi.core.ScenarioBuilder;
 import io.gatling.javaapi.core.Simulation;

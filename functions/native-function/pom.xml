@@ -30,18 +30,6 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <outputDirectory>${outputDirectory}</outputDirectory>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <profiles>
         <profile>
             <id>native</id>
@@ -64,7 +52,6 @@
                         <configuration>
                             <skip>false</skip>
                             <imageName>${imageName}</imageName>
-                            <outputDirectory>${outputDirectory}</outputDirectory>
                             <buildArgs>
                                 <buildArg>--no-fallback</buildArg>
                             </buildArgs>

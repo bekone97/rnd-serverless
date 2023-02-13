@@ -37,13 +37,3 @@ RUN ln -s /usr/lib/graalvm/bin/native-image /usr/bin/native-image
 RUN ln -s /usr/lib/maven/bin/mvn /usr/bin/mvn
 
 ENV JAVA_HOME /usr/lib/graalvm
-
-WORKDIR /src
-COPY ../pom.xml ./
-COPY ../api ./api
-COPY ../factorial ./factorial
-COPY ../fibonacci ./fibonacci
-COPY ../rsa ./rsa
-COPY ../app ./app
-COPY ../functions ./functions
-RUN mvn clean install

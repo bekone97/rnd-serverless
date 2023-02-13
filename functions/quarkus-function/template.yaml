@@ -29,6 +29,9 @@ Resources:
         ApplyOn: PublishedVersions
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.fibonacci.Fibonacci
     Metadata:
       BuildMethod: makefile
   ### RSA
@@ -44,6 +47,9 @@ Resources:
         ApplyOn: PublishedVersions
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.rsa.RSA
     Metadata:
       BuildMethod: makefile
   ### Factorial
@@ -59,6 +65,9 @@ Resources:
         ApplyOn: PublishedVersions
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
     Metadata:
       BuildMethod: makefile
   ## 512
@@ -75,6 +84,9 @@ Resources:
         ApplyOn: PublishedVersions
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.fibonacci.Fibonacci
       MemorySize: 512
     Metadata:
       BuildMethod: makefile
@@ -91,6 +103,10 @@ Resources:
         ApplyOn: PublishedVersions
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL:
+            rnd.serverless.impl.rsa.RSA
       MemorySize: 512
     Metadata:
       BuildMethod: makefile
@@ -107,6 +123,9 @@ Resources:
         ApplyOn: PublishedVersions
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
       MemorySize: 512
     Metadata:
       BuildMethod: makefile
@@ -122,6 +141,9 @@ Resources:
       Policies: AWSLambdaBasicExecutionRole
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.fibonacci.Fibonacci
     Metadata:
       BuildMethod: makefile
   ### RSA
@@ -134,6 +156,9 @@ Resources:
       Policies: AWSLambdaBasicExecutionRole
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.rsa.RSA
     Metadata:
       BuildMethod: makefile
   ### Factorial
@@ -146,6 +171,9 @@ Resources:
       Policies: AWSLambdaBasicExecutionRole
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
     Metadata:
       BuildMethod: makefile
   ## 512
@@ -159,6 +187,9 @@ Resources:
       Policies: AWSLambdaBasicExecutionRole
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.fibonacci.Fibonacci
       MemorySize: 512
     Metadata:
       BuildMethod: makefile
@@ -172,6 +203,9 @@ Resources:
       Policies: AWSLambdaBasicExecutionRole
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.rsa.RSA
       MemorySize: 512
     Metadata:
       BuildMethod: makefile
@@ -185,6 +219,9 @@ Resources:
       Policies: AWSLambdaBasicExecutionRole
       FunctionUrlConfig:
         AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
       MemorySize: 512
     Metadata:
       BuildMethod: makefile

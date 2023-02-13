@@ -11,5 +11,6 @@
     <modules>
         <module>native-function</module>
         <module>quarkus-function</module>
+<!--        <module>spring-function</module>-->
     </modules>
 </project>

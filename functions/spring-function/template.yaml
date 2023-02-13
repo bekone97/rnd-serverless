@@ -1,24 +1,28 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  native functions
+  spring functions
 
 Globals:
   Function:
-    Timeout: 200
+    Timeout: 20
     MemorySize: 256
     Architectures:
       - x86_64
+    Environment:
+      Variables:
+        JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
 
 Resources:
-  # 256
-  ## Fibonacci
-  FibonacciFunctionNative256:
+  # Spring JDK
+  ## 256
+  ### Fibonacci
+  FibonacciFunctionSpringNative256:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: FibonacciFunctionNative256
-      Handler: rnd.serverless.nativ.NativeHandler::handleRequest
-      Runtime: provided
+      FunctionName: FibonacciFunctionSpringNative256
+      Handler: no.handler.required
+      Runtime: provided.al2
       FunctionUrlConfig:
         AuthType: AWS_IAM
       Environment:
@@ -26,27 +30,13 @@ Resources:
           IMPL: rnd.serverless.impl.fibonacci.Fibonacci
     Metadata:
       BuildMethod: makefile
-  ## Factorial
-  FactorialFunctionNative256:
+  ### RSA
+  RSAFunctionSpringNative256:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: FactorialFunctionNative256
-      Handler: rnd.serverless.nativ.NativeHandler::handleRequest
-      Runtime: provided
-      FunctionUrlConfig:
-        AuthType: AWS_IAM
-      Environment:
-        Variables:
-          IMPL: rnd.serverless.impl.factorial.Factorial
-    Metadata:
-      BuildMethod: makefile
-  ## RSA
-  RSAFunctionNative256:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: RSAFunctionNative256
-      Handler: rnd.serverless.nativ.NativeHandler::handleRequest
-      Runtime: provided
+      FunctionName: RSAFunctionSpringNative256
+      Handler: no.handler.required
+      Runtime: provided.al2
       FunctionUrlConfig:
         AuthType: AWS_IAM
       Environment:
@@ -54,14 +44,28 @@ Resources:
           IMPL: rnd.serverless.impl.rsa.RSA
     Metadata:
       BuildMethod: makefile
-  # 512
-  ## Fibonacci
-  FibonacciFunctionNative512:
+  ### Factorial
+  FactorialFunctionSpringNative256:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: FibonacciFunctionNative512
-      Handler: rnd.serverless.nativ.NativeHandler::handleRequest
-      Runtime: provided
+      FunctionName: FactorialFunctionSpringNative256
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
+    Metadata:
+      BuildMethod: makefile
+  ## 512
+  ### Fibonacci
+  FibonacciFunctionSpringNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FibonacciFunctionSpringNative512
+      Handler: no.handler.required
+      Runtime: provided.al2
       FunctionUrlConfig:
         AuthType: AWS_IAM
       Environment:
@@ -70,33 +74,33 @@ Resources:
       MemorySize: 512
     Metadata:
       BuildMethod: makefile
-  ## Factorial
-  FactorialFunctionNative512:
+  ### RSA
+  RSAFunctionSpringNative512:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: FactorialFunctionNative512
-      Handler: rnd.serverless.nativ.NativeHandler::handleRequest
-      Runtime: provided
-      FunctionUrlConfig:
-        AuthType: AWS_IAM
-      Environment:
-        Variables:
-          IMPL: rnd.serverless.impl.factorial.Factorial
-      MemorySize: 512
-    Metadata:
-      BuildMethod: makefile
-  ## RSA
-  RSAFunctionNative512:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: RSAFunctionNative512
-      Handler: rnd.serverless.nativ.NativeHandler::handleRequest
-      Runtime: provided
+      FunctionName: RSAFunctionSpringNative512
+      Handler: no.handler.required
+      Runtime: provided.al2
       FunctionUrlConfig:
         AuthType: AWS_IAM
       Environment:
         Variables:
           IMPL: rnd.serverless.impl.rsa.RSA
+      MemorySize: 512
+    Metadata:
+      BuildMethod: makefile
+  ### Factorial
+  FactorialFunctionSpringNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FactorialFunctionSpringNative512
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
       MemorySize: 512
     Metadata:
       BuildMethod: makefile

@@ -1,6 +1,6 @@
 [
   {
-    "name": "rnd.serverless.Handler",
+    "name": "rnd.serverless.nativ.NativeHandler",
     "allDeclaredConstructors": true,
     "allPublicConstructors": true,
     "allDeclaredMethods": true,
