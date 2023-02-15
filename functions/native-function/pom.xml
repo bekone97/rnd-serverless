@@ -1,18 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>godel</groupId>
-        <artifactId>functions</artifactId>
-        <version>1.0</version>
-    </parent>
+    <groupId>godel</groupId>
     <artifactId>native-function</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <properties>
         <native-maven-plugin.version>0.9.8</native-maven-plugin.version>
         <imageName>native</imageName>
         <mainClass>com.amazonaws.services.lambda.runtime.api.client.AWSLambda</mainClass>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -29,6 +28,18 @@
             <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>godel</groupId>
+                <artifactId>rnd-serverless-bom</artifactId>
+                <version>1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <profiles>
         <profile>
