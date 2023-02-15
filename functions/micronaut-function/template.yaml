@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  micronaut functions
+
+Globals:
+  Function:
+    Timeout: 20
+    MemorySize: 256
+    Architectures:
+      - x86_64
+
+Resources:
+  # Micronaut Native
+  ## 256
+  ### Fibonacci
+  FibonacciFunctionMicronautNative256:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FibonacciFunctionMicronautNative256
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.fibonacci.Fibonacci
+    Metadata:
+      BuildMethod: makefile
+  ### RSA
+  RSAFunctionMicronautNative256:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: RSAFunctionMicronautNative256
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.rsa.RSA
+    Metadata:
+      BuildMethod: makefile
+  ### Factorial
+  FactorialFunctionMicronautNative256:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FactorialFunctionMicronautNative256
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
+    Metadata:
+      BuildMethod: makefile
+  ## 512
+  ### Fibonacci
+  FibonacciFunctionMicronautNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FibonacciFunctionMicronautNative512
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.fibonacci.Fibonacci
+      MemorySize: 512
+    Metadata:
+      BuildMethod: makefile
+  ### RSA
+  RSAFunctionMicronautNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: RSAFunctionMicronautNative512
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.rsa.RSA
+      MemorySize: 512
+    Metadata:
+      BuildMethod: makefile
+  ### Factorial
+  FactorialFunctionMicronautNative512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FactorialFunctionMicronautNative512
+      Handler: no.handler.required
+      Runtime: provided.al2
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          IMPL: rnd.serverless.impl.factorial.Factorial
+      MemorySize: 512
+    Metadata:
+      BuildMethod: makefile
