@@ -1,6 +1,0 @@
-applicationType: default
-defaultPackage: rnd.serverless
-testFramework: junit
-sourceLanguage: java
-buildTool: maven
-features: [annotation-api, app-name, aws-lambda, aws-lambda-custom-runtime, graalvm, http-client, jackson-databind, java, junit, logback, maven, readme, shade, x86, yaml]

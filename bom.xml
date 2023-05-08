@@ -13,16 +13,16 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <!--dependency versions-->
-        <aws-lambda-java-core.version>1.2.2</aws-lambda-java-core.version>
-        <aws-lambda-java-runtime-interface-client.version>2.1.1</aws-lambda-java-runtime-interface-client.version>
+        <azure.functions.java.library.version>2.2.0</azure.functions.java.library.version>
         <!--plugin versions-->
+        <azure.functions.maven.plugin.version>1.24.0</azure.functions.maven.plugin.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
         <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
-        <native-maven-plugin.version>0.9.19</native-maven-plugin.version>
+        <google-auto-service.version>1.0.1</google-auto-service.version>
     </properties>
 
     <dependencyManagement>
@@ -53,14 +53,19 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-lambda-java-core</artifactId>
-                <version>${aws-lambda-java-core.version}</version>
+                <groupId>godel</groupId>
+                <artifactId>azure</artifactId>
+                <version>${project.version</version>
             </dependency>
             <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
-                <version>${aws-lambda-java-runtime-interface-client.version}</version>
+                <groupId>com.microsoft.azure.functions</groupId>
+                <artifactId>azure-functions-java-library</artifactId>
+                <version>${azure.functions.java.library.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <version>${google-auto-service.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -98,9 +103,9 @@
                     <version>${maven-assembly-plugin.version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.graalvm.buildtools</groupId>
-                    <artifactId>native-maven-plugin</artifactId>
-                    <version>${native-maven-plugin.version}</version>
+                    <groupId>com.microsoft.azure</groupId>
+                    <artifactId>azure-functions-maven-plugin</artifactId>
+                    <version>${azure.functions.maven.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

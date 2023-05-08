@@ -14,6 +14,7 @@
         <module>factorial</module>
         <module>fibonacci</module>
         <module>rsa</module>
+        <module>azure</module>
     </modules>
 
     <properties>
@@ -32,4 +33,10 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service</artifactId>
+        </dependency>
+    </dependencies>
 </project>

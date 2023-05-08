@@ -1,9 +1,10 @@
 package rnd.serverless.impl.fibonacci;
 
+import com.google.auto.service.AutoService;
 import rnd.serverless.api.Calculate;
 
 import java.math.BigInteger;
-
+@AutoService(Calculate.class)
 public class Fibonacci implements Calculate {
     private final int n;
 

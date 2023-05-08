@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>rnd-serverless</artifactId>
+        <groupId>godel</groupId>
+        <version>1.0</version>
+    </parent>
+
+
+    <artifactId>azure</artifactId>
+    <properties>
+        <functionAppName>azure-function-20230413141805139</functionAppName>
+        <mainClass>rnd.serverless.impl.HttpTriggerFunction</mainClass>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure.functions</groupId>
+            <artifactId>azure-functions-java-library</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>app</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>factorial</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>fibonacci</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>godel</groupId>
+            <artifactId>rsa</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-functions-maven-plugin</artifactId>
+                <configuration>
+                    <!-- function app name -->
+                    <appName>${functionAppName}</appName>
+                    <!-- function app resource group -->
+                    <resourceGroup>java_rnd</resourceGroup>
+                    <!-- function app service plan name -->
+                    <!-- function app region-->
+                    <!-- refers https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details#supported-regions for all valid values -->
+                    <region>westus</region>
+                    <!-- function pricingTier, default to be consumption if not specified -->
+                    <!-- refers https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details#supported-pricing-tiers for all valid values -->
+                    <!-- <pricingTier></pricingTier> -->
+
+                    <!-- Whether to disable application insights, default is false -->
+                    <!-- refers https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details for all valid configurations for application insights-->
+                    <!-- <disableAppInsights></disableAppInsights> -->
+                    <runtime>
+                        <!-- runtime os, could be windows, linux or docker-->
+                        <os>linux</os>
+                        <javaVersion>11</javaVersion>
+                        <!-- for docker function, please set the following parameters -->
+                        <!-- <image>[hub-user/]repo-name[:tag]</image> -->
+                        <!-- <serverId></serverId> -->
+                        <!-- <registryUrl></registryUrl>  -->
+                    </runtime>
+                    <appSettings>
+                        <property>
+                            <name>FUNCTIONS_EXTENSION_VERSION</name>
+                            <value>~4</value>
+                        </property>
+                    </appSettings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>package-functions</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,10 +1,12 @@
 package rnd.serverless.impl.factorial;
 
 
+import com.google.auto.service.AutoService;
 import rnd.serverless.api.Calculate;
 
 import java.math.BigInteger;
 
+@AutoService(Calculate.class)
 public class Factorial implements Calculate {
     private final int n;
 

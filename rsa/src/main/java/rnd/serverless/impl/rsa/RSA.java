@@ -1,11 +1,12 @@
 package rnd.serverless.impl.rsa;
 
+import com.google.auto.service.AutoService;
 import rnd.serverless.api.Calculate;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
-
+@AutoService(Calculate.class)
 public class RSA implements Calculate {
 
     private final int keySize;
