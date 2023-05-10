@@ -23,13 +23,8 @@ public class HttpTriggerFunction {
                     authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
-
-        Logger logger = context.getLogger();
-        long startTime = System.nanoTime();
         String s = handleRequest();
-        long endTime = System.nanoTime();
-        logger.info("Time duration : "+(endTime-startTime));
-        return request.createResponseBuilder(HttpStatus.OK).body(s +"\n Time duration :"+(endTime-startTime)).build();
+        return request.createResponseBuilder(HttpStatus.OK).body(s).build();
 
     }
 
