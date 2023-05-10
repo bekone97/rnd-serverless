@@ -25,7 +25,6 @@ public class HttpTriggerFunction {
             final ExecutionContext context) {
 
         Logger logger = context.getLogger();
-        logger.info("Some message");
         long startTime = System.nanoTime();
         String s = handleRequest();
         long endTime = System.nanoTime();
