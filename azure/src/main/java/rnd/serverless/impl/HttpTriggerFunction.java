@@ -26,11 +26,12 @@ public class HttpTriggerFunction {
 
         Logger logger = context.getLogger();
         logger.info("Some message");
+        long startTime = System.nanoTime();
         String s = handleRequest();
-        if (s!=null){
-            return request.createResponseBuilder(HttpStatus.OK).body(s).build();
-        }
-        return request.createResponseBuilder(HttpStatus.OK).body("There aren't any service").build();
+        long endTime = System.nanoTime();
+        logger.info("Time duration : "+(endTime-startTime));
+        return request.createResponseBuilder(HttpStatus.OK).body(s +"\n Time duration :"+(endTime-startTime)).build();
+
     }
 
     public String handleRequest() {
